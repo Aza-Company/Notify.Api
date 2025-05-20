@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using NotifyHub.Domain.Aggregates;
+using NotifyHub.Domain.Interfaces;
 using System.Reflection;
 
 namespace NotifyHub.Infrastructure.Persistence;
