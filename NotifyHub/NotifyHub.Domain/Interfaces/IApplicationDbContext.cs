@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using NotifyHub.Domain.Aggregates;
 
-namespace NotifyHub.Infrastructure.Persistence;
+namespace NotifyHub.Domain.Interfaces;
 
 public interface IApplicationDbContext
 {

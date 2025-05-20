@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using NotifyHub.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using NotifyHub.Domain.Interfaces;
 
 namespace NotifyHub.Infrastructure.Extensions;
 

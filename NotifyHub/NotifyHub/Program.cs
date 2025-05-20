@@ -1,4 +1,5 @@
 using NotifyHub.Api.Extensions;
+using NotifyHub.Application.Extensions;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-builder.Services.RegisterApi(builder.Configuration);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
+
+builder.Services
+    .RegisterApplication(builder.Configuration)
+    .RegisterApi(builder.Configuration);
 
 var app = builder.Build();
 
