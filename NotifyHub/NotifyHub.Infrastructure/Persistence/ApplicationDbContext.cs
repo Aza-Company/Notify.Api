@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using NotifyHub.Domain.Aggregates;
 using NotifyHub.Domain.Interfaces;
@@ -6,7 +8,7 @@ using System.Reflection;
 
 namespace NotifyHub.Infrastructure.Persistence;
 
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IApplicationDbContext
 {
     public virtual DbSet<SmsMessage> SmsMessages { get; set; }
     public virtual DbSet<SmsSendRequest> SmsSendRequests { get; set; }
