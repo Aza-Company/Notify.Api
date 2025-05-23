@@ -27,6 +27,7 @@ public static class DependencyInjection
     public static IServiceCollection ImplementDI(this IServiceCollection services)
     {
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+        services.AddScoped<IJwtTokenService, JwtTokenService>();
 
         return services;
     }
