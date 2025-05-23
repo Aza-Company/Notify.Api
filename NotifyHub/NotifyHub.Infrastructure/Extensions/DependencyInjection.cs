@@ -14,7 +14,7 @@ public static class DependencyInjection
     {
         services.AddDbContext<IApplicationDbContext, ApplicationDbContext>((serviceProvider, options) =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         });
 
         AddIdentity(services);
