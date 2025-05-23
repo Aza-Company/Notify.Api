@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NotifyHub.Application.Features.Commands.Sms;
 
@@ -22,6 +23,7 @@ public class SmsController : ControllerBase
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     [HttpPost("send")]
+    [Authorize]
     public async Task<IActionResult> SendSms([FromBody] SendSmsCommand command, CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);

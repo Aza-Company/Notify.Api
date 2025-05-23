@@ -8,8 +8,6 @@ public class Result<T>
     public ProblemDetails Error { get; private set; } = null;
     public T? Value { get; private set; }
 
-    public bool IsFailure => !IsSuccess;
-
     protected Result(bool isSuccess, T? value, ProblemDetails error)
     {
         IsSuccess = isSuccess;
@@ -26,7 +24,6 @@ public class Result
     public bool IsSuccess { get; private set; }
     public ProblemDetails Error { get; private set; } = null;
 
-    public bool IsFailure => !IsSuccess;
 
     protected Result(bool isSuccess, ProblemDetails error)
     {
