@@ -28,14 +28,4 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, 
 
         base.OnModelCreating(modelBuilder);
     }
-
-    public int SaveChanges()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
 }

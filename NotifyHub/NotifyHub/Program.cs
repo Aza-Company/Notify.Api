@@ -1,4 +1,5 @@
 using NotifyHub.Api.Extensions;
+using NotifyHub.Api.Middlewares;
 using NotifyHub.Application.Extensions;
 using Scalar.AspNetCore;
 
@@ -27,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapGet("/", () => Results.Redirect("/scalar/v1"));
 }
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
