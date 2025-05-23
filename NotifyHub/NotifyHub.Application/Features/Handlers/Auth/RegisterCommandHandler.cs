@@ -6,11 +6,11 @@ using NotifyHub.Domain.Aggregates;
 
 namespace NotifyHub.Application.Features.Handlers.Auth;
 
-internal sealed class RegisterHandler : IRequestHandler<RegisterCommand, Result>
+internal sealed class RegisterCommandHandler : IRequestHandler<RegisterCommand, Result>
 {
     private readonly UserManager<User> _userManager;
 
-    public RegisterHandler(UserManager<User> userManager)
+    public RegisterCommandHandler(UserManager<User> userManager)
     {
         _userManager = userManager;
     }
