@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  notifyhub.api:
+    image: ${DOCKER_REGISTRY-}notifyhubapi
+    container_name: NotifyHub.Api
+    build:
+      context: .
+      dockerfile: NotifyHub/Dockerfile
+    ports:
+        - "5000:5000"
+        - "5001:5001"
+  
+  notifyhub.database:
+    image: postgres:latest
+    container_name: NotifyHub.Database
+    environment:
+      POSTGRES_DB: Notify
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: victus2019
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  notifyhub.cashe:
+    image: redis:latest
+    container_name: NotifyHub.Cache
+    restart: always
+    ports:
+      - "6379:6379"
+    
+volumes:
+  db_data:
