@@ -31,6 +31,7 @@ if (app.Environment.IsDevelopment())
 {
     app.MapScalarApiReference();
     app.MapOpenApi();
+    app.ApplyMigrations();
     app.MapGet("/", () => Results.Redirect("/scalar/v1"));
 }
 
