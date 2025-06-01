@@ -14,7 +14,7 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, 
     public virtual DbSet<SmsSendRequest> SmsSendRequests { get; set; }
     public virtual DbSet<UserDevice> UserDevices { get; set; }
 
-    public DatabaseFacade Database => throw new NotImplementedException();
+    //public DatabaseFacade Database => throw new NotImplementedException();
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
